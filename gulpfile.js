@@ -64,6 +64,13 @@ function serve() {
   watch(paths.html.src, html).on('change', bs.reload);
 }
 
+function copyImages() {
+  return gulp.src('src/images/**/*')
+             .pipe(gulp.dest('dist/images'));
+}
+
+exports.build = gulp.series(styles, scripts, html, copyImages);
+
 const build = series(cleanDist, parallel(styles, scripts, html));
 
 export {
