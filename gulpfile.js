@@ -17,6 +17,10 @@ const paths = {
     src: 'src/js/**/*.js',
     dest: 'dist/js'
   },
+  images: {
+    src: 'src/img/**/*',
+    dest: 'dist/img'
+  },
   html: {
     src: 'src/*.html',
     dest: 'dist'
@@ -47,6 +51,12 @@ function scripts() {
     .pipe(bs.stream());
 }
 
+function images() {
+  return src(paths.images.src)
+    .pipe(dest(paths.images.dest))
+    .pipe(bs.stream());
+}
+
 function html() {
   return src(paths.html.src)
     .pipe(dest(paths.html.dest))
@@ -61,22 +71,17 @@ function serve() {
   });
   watch(paths.styles.src, styles);
   watch(paths.scripts.src, scripts);
+  watch(paths.images.src, images);
   watch(paths.html.src, html).on('change', bs.reload);
 }
 
-function copyImages() {
-  return gulp.src('src/img/**/*')
-             .pipe(gulp.dest('dist/img'));
-}
-
-// exports.build = gulp.series(styles, scripts, html, copyImages);
-
-const build = series(cleanDist, parallel(styles, scripts, html,copyImages));
+const build = series(cleanDist, parallel(styles, scripts, images, html));
 
 export {
   cleanDist as clean,
   styles,
   scripts,
+  images,
   html,
   serve as watch,
   build,
