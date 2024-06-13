@@ -48,7 +48,7 @@ body {
   border: 0;
   border-radius: 10px;
   padding: 24px;
-  width: 452px;
+  max-width: 452px;
   height: 73px;
   background: #d7e2f6;
 }
@@ -91,7 +91,7 @@ body {
   border: 0;
   border-radius: 4px;
   padding: 18px 12px;
-  width: 452px;
+  max-width: 452px;
   height: 65px;
   background: #244c98;
   font-family: $font-family;
@@ -108,7 +108,7 @@ body {
   justify-content: center;
   border-radius: 4px;
   padding: 18px 12px;
-  width: 452px;
+  max-width: 452px;
   height: 65px;
   background: #fff;
   font-family: $font-family;
@@ -122,4 +122,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media(max-width: 550px) {
+  .log__section {
+    max-width: 300px;
+  }
 }
