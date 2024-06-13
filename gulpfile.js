@@ -69,9 +69,9 @@ function copyImages() {
              .pipe(gulp.dest('dist/img'));
 }
 
-exports.build = gulp.series(styles, scripts, html, copyImages);
+// exports.build = gulp.series(styles, scripts, html, copyImages);
 
-const build = series(cleanDist, parallel(styles, scripts, html));
+const build = series(cleanDist, parallel(styles, scripts, html,copyImages));
 
 export {
   cleanDist as clean,
