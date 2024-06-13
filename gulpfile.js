@@ -4,6 +4,7 @@ import gulpSass from 'gulp-sass';
 import * as sass from 'sass';
 import cssnano from 'gulp-cssnano';
 import browserSync from 'browser-sync';
+import imagemin from 'gulp-imagemin';
 
 const bs = browserSync.create();
 const { src, dest, series, parallel, watch } = gulp;
@@ -53,6 +54,7 @@ function scripts() {
 
 function images() {
   return src(paths.images.src)
+    .pipe(imagemin())
     .pipe(dest(paths.images.dest))
     .pipe(bs.stream());
 }
