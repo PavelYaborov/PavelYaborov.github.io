@@ -65,8 +65,8 @@ function serve() {
 }
 
 function copyImages() {
-  return gulp.src('src/images/**/*')
-             .pipe(gulp.dest('dist/images'));
+  return gulp.src('src/img/**/*')
+             .pipe(gulp.dest('dist/img'));
 }
 
 exports.build = gulp.series(styles, scripts, html, copyImages);
