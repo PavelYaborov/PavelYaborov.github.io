@@ -1,3 +1,1 @@
-
-
-import './components/script'
+import './components/script.js'
