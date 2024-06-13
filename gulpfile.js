@@ -11,15 +11,15 @@ const { src, dest, series, parallel, watch } = gulp;
 const paths = {
   styles: {
     src: 'src/scss/**/*.scss',
-    dest: 'app/css'
+    dest: 'dist/css'
   },
   scripts: {
     src: 'src/js/**/*.js',
-    dest: 'app/js'
+    dest: 'dist/js'
   },
   html: {
     src: 'src/*.html',
-    dest: 'app'
+    dest: 'dist'
   }
 };
 
@@ -37,7 +37,7 @@ async function styles() {
 }
 
 function cleanDist() {
-  return src('app', { read: false, allowEmpty: true })
+  return src('dist', { read: false, allowEmpty: true })
     .pipe(clean());
 }
 
@@ -56,7 +56,7 @@ function html() {
 function serve() {
   bs.init({
     server: {
-      baseDir: './app'
+      baseDir: './dist'
     }
   });
   watch(paths.styles.src, styles);
