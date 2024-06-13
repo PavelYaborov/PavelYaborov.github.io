@@ -70,6 +70,10 @@ body {
 
 }
 
+.main__section-img {
+  border-radius: 0 10px 10px 0;
+}
+
 @media (max-width: 1600px) {
 
   .main__section-text-block {
@@ -92,7 +96,10 @@ body {
   .main__section-img-block {
     width: 680px;
     height: 456px;
+  }
 
+  .main__section-img {
+    border-radius: 0 10px 10px 0;
   }
 }
 
@@ -137,7 +144,12 @@ body {
     border-radius: 0 0 10px 10px ;
     width: 100%;
     height: 360px;
+  }
 
+  .main__section-img {
+    width: 100%;
+    height: 360px;
+    border-radius: 0 0 10px 10px ;
   }
 }
 
@@ -170,6 +182,12 @@ body {
   }
 
   .main__section-img-block {
+
+    width: 100%;
+    height: 220px;
+  }
+
+  .main__section-img{
     border-radius: 0 0 10px 10px ;
     width: 100%;
     height: 220px;
